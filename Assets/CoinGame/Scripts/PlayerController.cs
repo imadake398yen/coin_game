@@ -19,11 +19,11 @@ public class PlayerController : MonoBehaviour {
 			return;
 	}
 
-	void OnControllerColliderHit (ControllerColliderHit hit) {
-		if (hit.gameObject.tag == "Item") {
+	void OnTriggerEnter (Collider other) {
+		if (other.gameObject.tag == "Item") {
 			audio.Play();
 			coins++;
-			Destroy(hit.gameObject);
+			Destroy(other.gameObject);
 		}
 	}
 
